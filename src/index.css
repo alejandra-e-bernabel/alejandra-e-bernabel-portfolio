@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+
+@layer base {
+  :root {
+    --background: 30 20% 95%;
+    --foreground: 0 0% 8%;
+
+    --card: 30 20% 92%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 30 20% 95%;
+    --popover-foreground: 0 0% 8%;
+
+    --primary: 340 80% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 20 90% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 30 15% 88%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 330 70% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 30 10% 80%;
+    --input: 30 10% 80%;
+    --ring: 340 80% 58%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 30 20% 95%;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 340 80% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 30 15% 88%;
+    --sidebar-accent-foreground: 0 0% 8%;
+    --sidebar-border: 30 10% 80%;
+    --sidebar-ring: 340 80% 58%;
+
+    --yellow: 48 100% 50%;
+    --yellow-foreground: 0 0% 5%;
+
+    --pink: 340 80% 70%;
+    --coral: 15 85% 65%;
+    --mint: 160 40% 75%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  .gradient-text-yellow {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(135deg, hsl(var(--yellow)), hsl(var(--secondary)));
+  }
+
+  .section-pink {
+    background: hsl(var(--pink) / 0.25);
+  }
+
+  .section-floral {
+    background-image: url('/images/floral-bg.webp');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .section-textured {
+    background-image: url('/images/textured-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .section-coral {
+    background: hsl(var(--coral) / 0.2);
+  }
+
+  .section-mint {
+    background: hsl(var(--mint) / 0.25);
+  }
+
+  .section-yellow {
+    background: hsl(var(--yellow) / 0.15);
+  }
+
+  .section-dark {
+    background: hsl(0 0% 8%);
+    color: hsl(30 20% 95%);
+  }
+
+  .glow-yellow {
+    box-shadow: 0 4px 20px hsl(48 100% 50% / 0.25);
+  }
+
+  .glow-pink {
+    box-shadow: 0 4px 20px hsl(340 80% 58% / 0.4);
+  }
+
+  .hover-pink-glow:hover {
+    box-shadow: 0 4px 20px hsl(340 80% 58% / 0.4);
+    border-color: hsl(340 80% 58%) !important;
+  }
+
+  .hover\:glow-yellow:hover {
+    box-shadow: 0 4px 20px hsl(48 100% 50% / 0.25);
+  }
+
+  /* Side navigation animations */
+  .nav-circle-compact {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-label-fade {
+    transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  25% { transform: translateY(-6px) rotate(0.5deg); }
+  50% { transform: translateY(0) rotate(1deg); }
+  75% { transform: translateY(6px) rotate(-0.5deg); }
+}
+
+.animate-wave {
+  animation: wave 4s ease-in-out infinite;
+}
+
