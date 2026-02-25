@@ -19,15 +19,21 @@ const SideNav = () => {
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
 
-    sections.forEach(({ id }) => {
+    sections.forEach(({ id }, index) => {
       const el = document.getElementById(id);
       if (!el) return;
 
+      // Use different rootMargin for last section since there's no content below
+      const isLastSection = index === sections.length - 1;
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) setActive(id);
         },
-        { rootMargin: "-40% 0px -55% 0px" },
+        {
+          rootMargin: isLastSection
+            ? "-40% 0px -10% 0px"  // Less bottom margin for last section
+            : "-40% 0px -55% 0px"
+        },
       );
       observer.observe(el);
       observers.push(observer);

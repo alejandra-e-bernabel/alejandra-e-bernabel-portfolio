@@ -32,6 +32,9 @@ const ContactSection = () => {
           <h2 className="font-display text-4xl md:text-6xl font-bold mb-4">
             Let's <span className="text-yellow">Connect</span>
           </h2>
+          <p className="text-foreground/60 mb-10 max-w-2xl mx-auto">
+            I'm always open to new opportunities and collaborations. Feel free to reach out through any of the platforms below!
+          </p>
 
           <div className="flex items-center justify-center gap-4 mb-16 flex-wrap">
             {links.map((link) => (
